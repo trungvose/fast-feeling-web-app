@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  music-api:
+    build: ./music-api
+    ports:
+      - '3001:3001'
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=music_db
+    depends_on:
+      - db
+    volumes:
+      - ./music-api:/usr/src/app
+      - /usr/src/app/node_modules
+  db:
+    image: postgres:13
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: music_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

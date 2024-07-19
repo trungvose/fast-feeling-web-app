@@ -1,42 +1,13 @@
 const express = require('express');
-const { Sequelize, DataTypes } = require('sequelize');
+const cors = require('cors'); 
+const sequelize = require('./config/database');
+const Playlist = require('./models/playlist');
 
 const app = express();
 const port = 3001;
 
-// Connect to the PostgreSQL database
-const sequelize = new Sequelize(
-  process.env.POSTGRES_DB,
-  process.env.POSTGRES_USER,
-  process.env.POSTGRES_PASSWORD,
-  {
-    host: 'db',
-    dialect: 'postgres',
-  }
-);
-
-// Define the Playlist model
-const Playlist = sequelize.define('Playlist', {
-  id: {
-    type: DataTypes.STRING,
-    primaryKey: true,
-  },
-  name: {
-    type: DataTypes.STRING,
-  },
-  description: {
-    type: DataTypes.TEXT,
-  },
-  spotify_url: {
-    type: DataTypes.STRING,
-  },
-  image_url: {
-    type: DataTypes.STRING,
-  },
-}, {
-  tableName: 'playlists',
-  timestamps: false,
-});
+// Use CORS middleware
+app.use(cors());
 
 // Endpoint to get all playlists
 app.get('/api/playlists', async (req, res) => {

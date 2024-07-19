@@ -13,7 +13,8 @@ services:
       - db
     volumes:
       - ./music-api:/usr/src/app
-      - /usr/src/app/node_modules
+      - /usr/src/app/node_modules # This volume is to avoid overwriting node_modules with the local volume
+      
   db:
     image: postgres:13
     ports:

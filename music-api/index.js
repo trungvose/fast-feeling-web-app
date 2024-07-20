@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors'); 
 const sequelize = require('./config/database');
 const Playlist = require('./models/playlist');
+const delay = require('./utils/delay');
 
 const app = express();
 const port = 3001;
@@ -9,7 +10,6 @@ const port = 3001;
 // Use CORS middleware
 app.use(cors());
 
-// Endpoint to get all playlists
 app.get('/api/playlists', async (req, res) => {
   try {
     const playlists = await Playlist.findAll();
@@ -19,7 +19,6 @@ app.get('/api/playlists', async (req, res) => {
   }
 });
 
-// Endpoint to get a playlist by ID
 app.get('/api/playlists/:id', async (req, res) => {
   try {
     const playlist = await Playlist.findByPk(req.params.id);
@@ -33,7 +32,6 @@ app.get('/api/playlists/:id', async (req, res) => {
   }
 });
 
-// Sync the Sequelize models and start the server
 sequelize.sync().then(() => {
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

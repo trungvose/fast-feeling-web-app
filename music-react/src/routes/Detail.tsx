@@ -1,16 +1,17 @@
 import { useParams } from 'react-router-dom';
 import { usePlaylist } from '../hooks/use-playlists';
+import { Container } from './Container';
 
 const PlaylistDetail = () => {
   const { id } = useParams();
   const { data: playlist, isLoading } = usePlaylist(id!);
 
   if (!playlist || isLoading) {
-    return <div>Loading...</div>;
+    return <h2 className='text-6xl text-white'>Loading...</h2>;
   }
 
   return (
-    <div className='p-4'>
+    <Container>
       <div className='bg-white rounded-lg shadow-md p-4'>
         <div className='flex gap-6 items-end mb-12'>
           <img
@@ -38,7 +39,7 @@ const PlaylistDetail = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

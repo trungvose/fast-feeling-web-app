@@ -1,9 +1,26 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function Root() {
   return (
-    <div className='container mx-auto py-14'>
-      <Outlet></Outlet>
-    </div>
+    <>
+      <nav className='bg-gray-800 text-white p-4'>
+        <div className='container mx-auto flex justify-between items-center'>
+          <a href='/' className='text-lg font-bold'>
+            Music React
+          </a>
+          <div>
+            <Link className='mr-4 hover:text-gray-400' to="/cat">
+              Cat
+            </Link>
+            <Link className='mr-4 hover:text-gray-400' to="/playlists">
+              Playlists
+            </Link>
+          </div>
+        </div>
+      </nav>
+      <div className='flex flex-col flex-1'>
+        <Outlet></Outlet>
+      </div>
+    </>
   );
 }

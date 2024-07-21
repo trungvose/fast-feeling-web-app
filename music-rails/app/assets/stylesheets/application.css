@@ -14,10 +14,6 @@
  *= require_self
  */
 
- html {
-  background: rgb(107 114 128);
- }
-
 @view-transition {
   navigation: auto;
 }

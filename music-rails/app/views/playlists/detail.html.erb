@@ -1,18 +1,20 @@
-<div class="p-4">
-  <div class="bg-white rounded-lg shadow-md p-4">
-    <div class="flex gap-6 items-end mb-12">
-      <img
-        src="<%= @playlist.image_url %>" alt="<%= @playlist.name %>" class="w-[300px] object-cover aspect-square rounded-lg" />
-      <div>
-        <p class="uppercase">Public Playlist</p>
-        <h2 class="text-5xl font-semibold my-8"><%= @playlist.name %></h2>
-        <p class="text-gray-600 mb-auto"><%= @playlist.description.html_safe %></p>
+<div class="bg-[#212529] flex-1 pt-8">
+  <div class="container mx-auto">
+    <div class="bg-white rounded-lg shadow-md p-4">
+      <div class="flex gap-6 items-end mb-12">
+        <img
+          src="<%= @playlist.image_url %>" alt="<%= @playlist.name %>" class="w-[300px] object-cover aspect-square rounded-lg" />
+        <div>
+          <p class="uppercase">Public Playlist</p>
+          <h2 class="text-5xl font-semibold my-8"><%= @playlist.name %></h2>
+          <p class="text-gray-600 mb-auto"><%= @playlist.description.html_safe %></p>
+        </div>
       </div>
-    </div>
-    <div class="grid gap-4">
-      <% 10.times do |index| %>
-        <div class="bg-gray-200 h-10 rounded-lg flex items-center justify-center"></div>
-      <% end %>
+      <div class="grid gap-4">
+        <% 10.times do |index| %>
+          <div class="bg-gray-200 h-10 rounded-lg flex items-center justify-center"></div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

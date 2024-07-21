@@ -10,7 +10,6 @@ const PlaylistListing = () => {
 
   return (
     <div className='p-4'>
-      <h1 className='text-2xl font-bold mb-4'>Music Playlists</h1>
       <div className='grid gap-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]'>
         {playlists!.map((playlist) => (
           <Link

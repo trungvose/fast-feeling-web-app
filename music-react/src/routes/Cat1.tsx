@@ -18,7 +18,7 @@ export const Cat1 = () => {
           />
         </picture>
         <div className='mt-4'>
-          <Link unstable_viewTransition to='/cat2' className='hover:underline text-pink-600 text-xl'>
+          <Link to='/cat2' className='hover:underline text-pink-600 text-xl'>
             Follow this link to page 2
           </Link>
         </div>

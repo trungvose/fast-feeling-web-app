@@ -31,7 +31,7 @@ const PlaylistDetail = () => {
           </div>
         </div>
         <div className='grid gap-4'>
-          {new Array(10).fill(0).map((index) => (
+          {new Array(10).fill(0).map((_, index) => (
             <div
               key={index}
               className='bg-gray-200 h-10 rounded-lg flex items-center justify-center'

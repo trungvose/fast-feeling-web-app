@@ -18,7 +18,7 @@ export const Cat2 = () => {
           />
         </picture>
         <div className='mt-4'>
-          <Link to='/cat' className='hover:underline text-pink-600 text-xl'>
+          <Link to='/cat1' className='hover:underline text-pink-600 text-xl'>
             Follow this link to page 1
           </Link>
         </div>

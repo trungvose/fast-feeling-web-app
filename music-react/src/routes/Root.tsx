@@ -9,7 +9,7 @@ export default function Root() {
             Music React
           </a>
           <div>
-            <Link className='mr-4 hover:text-gray-400' to="/cat">
+            <Link className='mr-4 hover:text-gray-400' to="/cat1">
               Cat
             </Link>
             <Link className='mr-4 hover:text-gray-400' to="/playlists">

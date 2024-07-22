@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         element: <PlaylistDetail />,
       },
       {
-        path: '/cat',
+        path: '/cat1',
         element: <Cat1 />
       },
       {

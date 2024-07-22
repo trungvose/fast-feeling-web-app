@@ -17,3 +17,10 @@
 @view-transition {
   navigation: auto;
 }
+
+.emoji {
+  font-size: 2rem;
+  position: relative;
+  pointer-events: none;
+  grid-area: 1/1;
+}

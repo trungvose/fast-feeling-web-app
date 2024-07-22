@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 
   def cat2
   end
+
+  def emoji1
+  end
+
+  def emoji2
+  end
 end

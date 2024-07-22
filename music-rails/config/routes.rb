@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # Cat
   get 'cat1', to: 'pages#cat1'
   get 'cat2', to: 'pages#cat2'
+  get 'emoji1', to: 'pages#emoji1'
+  get 'emoji2', to: 'pages#emoji2'
   
   # Defines the root path route ("/")
   # root "posts#index"

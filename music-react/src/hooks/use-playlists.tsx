@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { Playlist, Playlists } from '../types/playlist';
 import { BASE_API_URL } from '../core/environment';
+import { Playlist, Playlists } from '../types/playlist';
 
 export const usePlaylists = () => {
   return useQuery<Playlists>({

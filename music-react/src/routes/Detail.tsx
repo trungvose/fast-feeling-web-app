@@ -7,7 +7,7 @@ const PlaylistDetail = () => {
   const { data: playlist, isLoading } = usePlaylist(id!);
 
   if (!playlist || isLoading) {
-    return <h2 className='text-6xl text-white'>Loading...</h2>;
+    return <h2 className='text-6xl text-gray-800'>Loading...</h2>;
   }
 
   return (

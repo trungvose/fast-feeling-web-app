@@ -14,10 +14,6 @@
  *= require_self
  */
 
-@view-transition {
-  navigation: auto;
-}
-
 .emoji {
   font-size: 2rem;
   position: relative;

@@ -14,7 +14,7 @@ export const usePlaylists = () => {
 
 export const usePlaylist = (id: string) => {
   return useQuery<Playlist>({
-    queryKey: ['playlists', id],
+    queryKey: ['playlist', id],
     queryFn: async () => {
       const response = await fetch(`${BASE_API_URL}/playlists/${id}`);
       return response.json();

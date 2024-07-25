@@ -23,6 +23,7 @@ app.get('/api/playlists/:id', async (req, res) => {
   try {
     const playlist = await Playlist.findByPk(req.params.id);
     if (playlist) {
+      await delay(1000);
       res.json(playlist);
     } else {
       res.status(404).json({ error: 'Playlist not found' });

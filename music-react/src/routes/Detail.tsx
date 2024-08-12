@@ -17,11 +17,12 @@ const PlaylistDetail = () => {
           <img
             src={playlist.image_url}
             alt={playlist.name}
+            style={{ viewTransitionName : `cover-${playlist.id}` }}
             className='w-[300px] object-cover aspect-square rounded-lg'
           />
           <div>
             <p className='uppercase'>Public Playlist</p>
-            <h2 className='text-5xl font-semibold my-8'>{playlist.name}</h2>
+            <h2 style={{ viewTransitionName : `title-${playlist.id}` }} className='text-5xl font-semibold my-8'>{playlist.name}</h2>
             <p
               className='text-gray-600 mb-auto'
               dangerouslySetInnerHTML={{

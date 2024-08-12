@@ -15,6 +15,9 @@ export default function Root() {
             <Link className='mr-4 hover:text-gray-400' to="/playlists">
               Playlists
             </Link>
+            <Link className='mr-4 hover:text-gray-400' to="/debugging">
+              Debugging
+            </Link>
           </div>
         </div>
       </nav>

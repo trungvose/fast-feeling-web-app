@@ -28,6 +28,18 @@ export const Debugging = () => {
           Submit
         </button>
       </form>
+
+      <div className='mt-10'>
+        <div className='w-[2000px] h-12 bg-blue-500 text-white'>
+          Fixed Width: 2000px
+        </div>
+
+        <div className='flex justify-around mt-10'>
+          <div className='w-[2000px] h-12 bg-blue-500 text-white'>
+            Flex Item
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

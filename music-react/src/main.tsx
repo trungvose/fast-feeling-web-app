@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import MusicRootLayout from './routes/Root';
 import {
   createBrowserRouter,
   Navigate,
@@ -9,17 +8,6 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-import { PlaylistListing } from './routes/Listing';
-import { PlaylistDetail } from './routes/Detail';
-import { Cat1 } from './routes/Cat1';
-import { Cat2 } from './routes/Cat2';
-import { Debugging } from './routes/Debugging';
-import { Demo0Layout } from './routes/0-vehicles-slow/Demo0-Layout';
-import { Vehicles } from './routes/0-vehicles-slow/Vehicles';
-import { VehicleDetails } from './routes/0-vehicles-slow/VehicleDetails';
-import { Cats } from './routes/1-cat-images/Cats';
-import { LazyLoadIFrames } from './routes/1-cat-images/Iframes';
 
 const router = createBrowserRouter([
   {
@@ -32,56 +20,112 @@ const router = createBrowserRouter([
       },
       {
         path: '/debugging',
-        element: <MusicRootLayout />,
+        async lazy() {
+          const { MusicRootLayout } = await import('./routes/Root');
+          return {
+            Component: MusicRootLayout,
+          };
+        },
         children: [
           {
             path: '',
-            element: <Debugging />,
+            async lazy() {
+              const { Debugging } = await import('./routes/Debugging');
+              return {
+                Component: Debugging,
+              };
+            },
           },
         ],
       },
       {
-        path: 'view-transition',
-        element: <MusicRootLayout />,
+        path: 'music',
+        async lazy() {
+          const { MusicRootLayout } = await import('./routes/Root');
+          return {
+            Component: MusicRootLayout,
+          };
+        },
         children: [
           {
             path: 'playlists',
-            element: <PlaylistListing />,
+            async lazy() {
+              const { PlaylistListing } = await import('./routes/Listing');
+              return {
+                Component: PlaylistListing,
+              };
+            },
           },
           {
             path: 'playlists/:id',
-            element: <PlaylistDetail />,
+            async lazy() {
+              const { PlaylistDetail } = await import('./routes/Detail');
+              return {
+                Component: PlaylistDetail,
+              };
+            },
           },
           {
             path: 'cat1',
-            element: <Cat1 />,
+            async lazy() {
+              const { Cat1 } = await import('./routes/Cat1');
+              return {
+                Component: Cat1,
+              };
+            },
           },
           {
             path: 'cat2',
-            element: <Cat2 />,
+            async lazy() {
+              const { Cat2 } = await import('./routes/Cat2');
+              return {
+                Component: Cat2,
+              };
+            },
           },
         ],
       },
       {
-        path: 'demo0',
-        element: <Demo0Layout />,
+        path: 'vehicles',
+        async lazy() {
+          const { Demo0Layout } = await import(
+            './routes/0-vehicles-slow/Demo0-Layout'
+          );
+          return {
+            Component: Demo0Layout,
+          };
+        },
         children: [
           {
             path: '',
             element: <Navigate to='vehicles' />,
           },
           {
-            path: 'vehicles',
-            element: <Vehicles />,
+            path: '',
+            async lazy() {
+              const { Vehicles } = await import(
+                './routes/0-vehicles-slow/Vehicles'
+              );
+              return {
+                Component: Vehicles,
+              };
+            },
           },
           {
-            path: 'vehicles/:vehicleId',
-            element: <VehicleDetails />,
+            path: ':vehicleId',
+            async lazy() {
+              const { VehicleDetails } = await import(
+                './routes/0-vehicles-slow/VehicleDetails'
+              );
+              return {
+                Component: VehicleDetails,
+              };
+            },
           },
         ],
       },
       {
-        path: 'demo1',
+        path: 'lazy',
         children: [
           {
             path: '',
@@ -89,11 +133,23 @@ const router = createBrowserRouter([
           },
           {
             path: 'cats',
-            element: <Cats />,
+            async lazy() {
+              const { Cats } = await import('./routes/1-cat-images/Cats');
+              return {
+                Component: Cats,
+              };
+            },
           },
           {
             path: 'iframes',
-            element: <LazyLoadIFrames />,
+            async lazy() {
+              const { LazyLoadIFrames } = await import(
+                './routes/1-cat-images/Iframes'
+              );
+              return {
+                Component: LazyLoadIFrames,
+              };
+            },
           },
         ],
       },

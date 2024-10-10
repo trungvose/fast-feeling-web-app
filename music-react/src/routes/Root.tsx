@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-export default function MusicRootLayout() {
+export function MusicRootLayout() {
   return (
     <>
       <nav className='bg-gray-800 text-white p-4'>

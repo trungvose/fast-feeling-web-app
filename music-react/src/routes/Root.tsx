@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-export default function Root() {
+export default function MusicRootLayout() {
   return (
     <>
       <nav className='bg-gray-800 text-white p-4'>
@@ -9,10 +9,10 @@ export default function Root() {
             Music React
           </a>
           <div>
-            <Link className='mr-4 hover:text-gray-400' to="/cat1">
+            <Link className='mr-4 hover:text-gray-400' to="/view-transition/cat1">
               Cat
             </Link>
-            <Link className='mr-4 hover:text-gray-400' to="/playlists">
+            <Link className='mr-4 hover:text-gray-400' to="/view-transition/playlists">
               Playlists
             </Link>
             <Link className='mr-4 hover:text-gray-400' to="/debugging">

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { usePlaylists } from '../hooks/use-playlists';
 import { Container } from './Container';
 
-const PlaylistListing = () => {
+export const PlaylistListing = () => {
   const { data: playlists, isLoading } = usePlaylists();
 
   if (isLoading) {
@@ -46,5 +46,3 @@ const PlaylistListing = () => {
     </Container>
   );
 };
-
-export default PlaylistListing;

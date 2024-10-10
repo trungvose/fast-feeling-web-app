@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { usePlaylist } from '../hooks/use-playlists';
 import { Container } from './Container';
 
-const PlaylistDetail = () => {
+export const PlaylistDetail = () => {
   const { id } = useParams();
   const { data: playlist, isLoading } = usePlaylist(id!);
 
@@ -43,5 +43,3 @@ const PlaylistDetail = () => {
     </Container>
   );
 };
-
-export default PlaylistDetail;

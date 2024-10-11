@@ -6,21 +6,23 @@ export const VehicleDetails = () => {
   const { vehicleId } = useParams<{ vehicleId: string }>();
   const { error, loading, vehicle } = useFetchVehicle(vehicleId);
 
-  if (loading || !vehicle) return <Spinner />;
+  if (loading) return <Spinner />;
   if (error) return <h2>Error: {error}</h2>;
 
   return (
-    <div>
-      <h2 className='text-xl font-bold mb-4'>
-        <Link to='/vehicles' className='text-blue-600 hover:underline'>
-          Vehicles
-        </Link>
-        {' / '}
-        {vehicle.name}
-      </h2>
-      <h3 className='text-lg font-bold'>{vehicle.name}</h3>
-      <p className='mb-2'>Plate Number: {vehicle.plate}</p>
-      <p className='mb-2'>Vehicle ID: {vehicle.id}</p>
-    </div>
+    vehicle && (
+      <div>
+        <h2 className='text-xl font-bold mb-4'>
+          <Link to='/vehicles' className='text-blue-600 hover:underline'>
+            Vehicles
+          </Link>
+          {' / '}
+          {vehicle.name}
+        </h2>
+        <h3 className='text-lg font-bold'>{vehicle.name}</h3>
+        <p className='mb-2'>Plate Number: {vehicle.plate}</p>
+        <p className='mb-2'>Vehicle ID: {vehicle.id}</p>
+      </div>
+    )
   );
 };

@@ -4,12 +4,16 @@ import { BASE_API_URL } from '../../../core/environment';
 
 export const useFetchVehicles = () => {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     const fetchVehicles = async () => {
       try {
+        timer = setTimeout(() => {
+          setLoading(true);
+        }, 300);
         const response = await fetch(`${BASE_API_URL}/vehicles`, {
           headers: {
             delay: '250',
@@ -23,6 +27,7 @@ export const useFetchVehicles = () => {
       } catch (err) {
         setError((err as Error).message);
       } finally {
+        if (timer) clearTimeout(timer);
         setLoading(false);
       }
     };

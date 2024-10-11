@@ -4,17 +4,21 @@ import { BASE_API_URL } from '../../../core/environment';
 
 export const useFetchVehicle = (vehicleId: string | undefined) => {
   const [vehicle, setVehicle] = useState<Vehicle | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     const fetchVehicle = async () => {
       try {
+        timer = setTimeout(() => {
+          setLoading(true);           
+        }, 300);
         const response = await fetch(
-          `${BASE_API_URL}/api/vehicles/${vehicleId}`,
+          `${BASE_API_URL}/vehicles/${vehicleId}`,
           {
             headers: {
-              delay: '250',
+              delay: '1500',
             },
           }
         );
@@ -26,6 +30,7 @@ export const useFetchVehicle = (vehicleId: string | undefined) => {
       } catch (err) {
         setError((err as Error).message);
       } finally {
+        if (timer) clearTimeout(timer);
         setLoading(false);
       }
     };

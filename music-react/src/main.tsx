@@ -50,7 +50,9 @@ const router = createBrowserRouter([
           {
             path: '',
             async lazy() {
-              const { Debugging } = await import('./routes/view-transition/Debugging');
+              const { Debugging } = await import(
+                './routes/view-transition/Debugging'
+              );
               return {
                 Component: Debugging,
               };
@@ -183,9 +185,7 @@ const router = createBrowserRouter([
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  </React.StrictMode>
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>
 );

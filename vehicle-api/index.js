@@ -53,7 +53,7 @@ const host = 'localhost';
 const port = 3000;
 
 app.use(cors({
-  origin: 'http://localhost:4200',
+  origin: 'http://localhost:5173',
 }));
 
 // Route to get all vehicles

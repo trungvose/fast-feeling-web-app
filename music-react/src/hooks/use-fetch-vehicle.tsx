@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Vehicle } from '../../../types/vehicle';
-import { BASE_API_URL } from '../../../core/environment';
+import { useEffect, useState } from 'react';
+import { Vehicle } from '../types/vehicle';
+import { fetchVehicle } from '../api/fetchVehcile';
 
 export const useFetchVehicle = (vehicleId: string | undefined) => {
   const [vehicle, setVehicle] = useState<Vehicle | null>(null);
@@ -9,23 +9,16 @@ export const useFetchVehicle = (vehicleId: string | undefined) => {
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
-    const fetchVehicle = async () => {
+    const init = async () => {
       try {
         timer = setTimeout(() => {
-          setLoading(true);           
+          setLoading(true);
         }, 300);
-        const response = await fetch(
-          `${BASE_API_URL}/vehicles/${vehicleId}`,
-          {
-            headers: {
-              delay: '1500',
-            },
-          }
-        );
-        if (!response.ok) {
-          throw new Error(`Vehicle with id ${vehicleId} not found`);
-        }
-        const data: Vehicle = await response.json();
+        const data: Vehicle = await fetchVehicle(vehicleId, {
+          headers: {
+            delay: '1500',
+          },
+        });
         setVehicle(data);
       } catch (err) {
         setError((err as Error).message);
@@ -35,7 +28,7 @@ export const useFetchVehicle = (vehicleId: string | undefined) => {
       }
     };
 
-    fetchVehicle();
+    init();
   }, [vehicleId]);
 
   return { vehicle, loading, error };

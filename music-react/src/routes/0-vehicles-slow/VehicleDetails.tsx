@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { Spinner } from '../../shared/components/Spinner';
-import { useFetchVehicle } from './hooks/fetchVehicle';
+import { useFetchVehicle } from '../../hooks/use-fetch-vehicle';
 
 export const VehicleDetails = () => {
   const { vehicleId } = useParams<{ vehicleId: string }>();

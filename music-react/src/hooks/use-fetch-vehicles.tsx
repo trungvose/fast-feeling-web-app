@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Vehicle } from '../../../types/vehicle';
-import { BASE_API_URL } from '../../../core/environment';
+import { Vehicle } from '../types/vehicle';
+import { fetchVehicles } from '../api/fetchVehicles';
 
 export const useFetchVehicles = () => {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
@@ -9,20 +9,16 @@ export const useFetchVehicles = () => {
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
-    const fetchVehicles = async () => {
+    const init = async () => {
       try {
         timer = setTimeout(() => {
           setLoading(true);
         }, 300);
-        const response = await fetch(`${BASE_API_URL}/vehicles`, {
+        const data = await fetchVehicles({
           headers: {
             delay: '250',
           },
         });
-        if (!response.ok) {
-          throw new Error('Failed to fetch vehicles');
-        }
-        const data: Vehicle[] = await response.json();
         setVehicles(data);
       } catch (err) {
         setError((err as Error).message);
@@ -32,7 +28,7 @@ export const useFetchVehicles = () => {
       }
     };
 
-    fetchVehicles();
+    init();
   }, []);
 
   return { vehicles, loading, error };

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Spinner } from '../../shared/components/Spinner';
-import { useFetchVehicles } from './hooks/fetchVehicles';
+import { useFetchVehicles } from '../../hooks/use-fetch-vehicles';
 
 export const Vehicles = () => {
   const { loading, error, vehicles } = useFetchVehicles();

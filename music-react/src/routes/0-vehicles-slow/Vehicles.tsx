@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Spinner } from '../../shared/components/Spinner';
-import { useFetchVehicles } from '../../hooks/use-fetch-vehicles';
+import { useFetchVehicles } from '../../hooks/use-fetch-vehicles-query';
 
 export const Vehicles = () => {
-  const { loading, error, vehicles } = useFetchVehicles();
+  const { isLoading, error, data: vehicles } = useFetchVehicles();
 
-  if (loading) return <Spinner />;
-  if (error) return <h2>Error: {error}</h2>;
+  if (isLoading) return <Spinner />;
+  if (error) return <h2>Error: {error.message}</h2>;
 
   return (
     <div>
@@ -20,7 +20,7 @@ export const Vehicles = () => {
           </tr>
         </thead>
         <tbody>
-          {vehicles.map((vehicle) => (
+          {vehicles!.map((vehicle) => (
             <tr key={vehicle.id}>
               <td>{vehicle.plate}</td>
               <td>{vehicle.name}</td>

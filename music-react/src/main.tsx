@@ -16,7 +16,27 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Navigate to='/view-transition/cat1' />,
+        element: <Navigate to='/dashboard' />,
+      },
+      {
+        path: '/dashboard',
+        async lazy() {
+          const { Dashboard } = await import(
+            './routes/code-splitting/Dashboard'
+          );
+          return {
+            Component: Dashboard,
+          };
+        },
+      },
+      {
+        path: '/profile',
+        async lazy() {
+          const { Profile } = await import('./routes/code-splitting/Profile');
+          return {
+            Component: Profile,
+          };
+        },
       },
       {
         path: '/debugging',
@@ -30,7 +50,7 @@ const router = createBrowserRouter([
           {
             path: '',
             async lazy() {
-              const { Debugging } = await import('./routes/Debugging');
+              const { Debugging } = await import('./routes/view-transition/Debugging');
               return {
                 Component: Debugging,
               };
@@ -50,7 +70,9 @@ const router = createBrowserRouter([
           {
             path: 'playlists',
             async lazy() {
-              const { PlaylistListing } = await import('./routes/Listing');
+              const { PlaylistListing } = await import(
+                './routes/view-transition/Listing'
+              );
               return {
                 Component: PlaylistListing,
               };
@@ -59,7 +81,9 @@ const router = createBrowserRouter([
           {
             path: 'playlists/:id',
             async lazy() {
-              const { PlaylistDetail } = await import('./routes/Detail');
+              const { PlaylistDetail } = await import(
+                './routes/view-transition/Detail'
+              );
               return {
                 Component: PlaylistDetail,
               };
@@ -68,7 +92,7 @@ const router = createBrowserRouter([
           {
             path: 'cat1',
             async lazy() {
-              const { Cat1 } = await import('./routes/Cat1');
+              const { Cat1 } = await import('./routes/view-transition/Cat1');
               return {
                 Component: Cat1,
               };
@@ -77,29 +101,29 @@ const router = createBrowserRouter([
           {
             path: 'cat2',
             async lazy() {
-              const { Cat2 } = await import('./routes/Cat2');
+              const { Cat2 } = await import('./routes/view-transition/Cat2');
               return {
                 Component: Cat2,
               };
             },
+          },
+          {
+            path: '',
+            element: <Navigate to='playlists' />,
           },
         ],
       },
       {
         path: 'vehicles',
         async lazy() {
-          const { Demo0Layout } = await import(
-            './routes/0-vehicles-slow/Demo0-Layout'
+          const { VehicleLayout } = await import(
+            './routes/0-vehicles-slow/VehicleLayout'
           );
           return {
-            Component: Demo0Layout,
+            Component: VehicleLayout,
           };
         },
         children: [
-          {
-            path: '',
-            element: <Navigate to='vehicles' />,
-          },
           {
             path: '',
             async lazy() {

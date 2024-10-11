@@ -1,28 +1,16 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchVehicles } from './hooks/fetchVehicles';
 import { Spinner } from '../../shared/components/Spinner';
-import { Vehicle } from '../../types/vehicle';
+import { useFetchVehicles } from './hooks/fetchVehicles';
 
 export const Vehicles = () => {
-  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadVehicles = async () => {
-      const data = await fetchVehicles();
-      setVehicles(data);
-      setLoading(false);
-    };
-
-    loadVehicles();
-  }, []);
+  const { loading, error, vehicles } = useFetchVehicles();
 
   if (loading) return <Spinner />;
+  if (error) return <h2>Error: {error}</h2>;
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Vehicles</h2>
+      <h2 className='text-xl font-bold mb-4'>Vehicles</h2>
       <table>
         <thead>
           <tr>
@@ -38,8 +26,8 @@ export const Vehicles = () => {
               <td>{vehicle.name}</td>
               <td>
                 <Link
-                  to={`/demo0/vehicles/${vehicle.id}`}
-                  className="text-blue-600 hover:underline"
+                  to={`/vehicles/${vehicle.id}`}
+                  className='text-blue-600 hover:underline'
                 >
                   View Details
                 </Link>

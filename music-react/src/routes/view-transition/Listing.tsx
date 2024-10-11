@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { usePlaylists } from '../hooks/use-playlists';
+import { usePlaylists } from '../../hooks/use-playlists';
 import { Container } from './Container';
 
 export const PlaylistListing = () => {

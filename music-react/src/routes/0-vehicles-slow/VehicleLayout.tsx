@@ -1,12 +1,12 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
-export const Demo0Layout = () => {
+export const VehicleLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
         <div className="font-bold">Fast Feeling Web App</div>
-        <NavLink to="/demo1" className="text-white hover:underline">
-          Demo 1
+        <NavLink to="/music" className="text-white hover:underline">
+          View Transitions Demo
         </NavLink>
       </header>
       <div className="flex flex-grow">
@@ -14,7 +14,7 @@ export const Demo0Layout = () => {
           <ul>
             <li>
               <NavLink
-                to="/demo0/vehicles"
+                to="/vehicles"
                 className={({ isActive }) =>
                   `block p-2 ${isActive ? 'bg-blue-300' : 'hover:bg-blue-300'}`
                 }
@@ -24,7 +24,7 @@ export const Demo0Layout = () => {
             </li>
             <li>
               <NavLink
-                to="/demo0/drivers"
+                to="/drivers"
                 className={({ isActive }) =>
                   `block p-2 ${isActive ? 'bg-blue-300' : 'hover:bg-blue-300'}`
                 }
@@ -34,7 +34,7 @@ export const Demo0Layout = () => {
             </li>
             <li>
               <NavLink
-                to="/demo0/trips"
+                to="/trips"
                 className={({ isActive }) =>
                   `block p-2 ${isActive ? 'bg-blue-300' : 'hover:bg-blue-300'}`
                 }
@@ -44,7 +44,7 @@ export const Demo0Layout = () => {
             </li>
             <li>
               <NavLink
-                to="/demo0/maintenance"
+                to="/maintenance"
                 className={({ isActive }) =>
                   `block p-2 ${isActive ? 'bg-blue-300' : 'hover:bg-blue-300'}`
                 }
@@ -54,7 +54,7 @@ export const Demo0Layout = () => {
             </li>
             <li>
               <NavLink
-                to="/demo0/reports"
+                to="/reports"
                 className={({ isActive }) =>
                   `block p-2 ${isActive ? 'bg-blue-300' : 'hover:bg-blue-300'}`
                 }
@@ -64,7 +64,7 @@ export const Demo0Layout = () => {
             </li>
             <li>
               <NavLink
-                to="/demo0/settings"
+                to="/settings"
                 className={({ isActive }) =>
                   `block p-2 ${isActive ? 'bg-blue-300' : 'hover:bg-blue-300'}`
                 }
@@ -74,7 +74,7 @@ export const Demo0Layout = () => {
             </li>
             <li>
               <NavLink
-                to="/demo0/help"
+                to="/help"
                 className={({ isActive }) =>
                   `block p-2 ${isActive ? 'bg-blue-300' : 'hover:bg-blue-300'}`
                 }

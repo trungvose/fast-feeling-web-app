@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { usePlaylist } from '../hooks/use-playlists';
+import { usePlaylist } from '../../hooks/use-playlists';
 import { Container } from './Container';
 
 export const PlaylistDetail = () => {

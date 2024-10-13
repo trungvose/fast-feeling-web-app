@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: '/debugging',
         async lazy() {
-          const { MusicRootLayout } = await import('./routes/Root');
+          const { MusicRootLayout } = await import('./routes/PlaylistLayout');
           return {
             Component: MusicRootLayout,
           };
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
       {
         path: 'music',
         async lazy() {
-          const { MusicRootLayout } = await import('./routes/Root');
+          const { MusicRootLayout } = await import('./routes/PlaylistLayout');
           return {
             Component: MusicRootLayout,
           };
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
             path: 'playlists',
             async lazy() {
               const { PlaylistListing } = await import(
-                './routes/view-transition/Listing'
+                './routes/view-transition/PlaylistListing'
               );
               return {
                 Component: PlaylistListing,
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
             path: 'playlists/:id',
             async lazy() {
               const { PlaylistDetail } = await import(
-                './routes/view-transition/Detail'
+                './routes/view-transition/PlaylistDetail'
               );
               return {
                 Component: PlaylistDetail,

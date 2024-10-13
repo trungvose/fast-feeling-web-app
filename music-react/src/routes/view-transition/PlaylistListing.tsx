@@ -16,7 +16,7 @@ export const PlaylistListing = () => {
           <Link
             className='flex flex-col flex-1'
             key={playlist.id}
-            to={`/playlists/${playlist.id}`}
+            to={`${playlist.id}`}
             unstable_viewTransition
           >
             <div className='bg-white rounded-lg shadow-md p-4 flex flex-col flex-1'>

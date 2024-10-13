@@ -9,13 +9,16 @@ export function MusicRootLayout() {
             Music React
           </a>
           <div>
-            <Link className='mr-4 hover:text-gray-400' to="/view-transition/cat1">
+            <Link className='mr-4 hover:text-gray-400' to='/vehicles'>
+              Vehicles
+            </Link>
+            <Link className='mr-4 hover:text-gray-400' to='/music/cat1'>
               Cat
             </Link>
-            <Link className='mr-4 hover:text-gray-400' to="/view-transition/playlists">
+            <Link className='mr-4 hover:text-gray-400' to='/music/playlists'>
               Playlists
             </Link>
-            <Link className='mr-4 hover:text-gray-400' to="/debugging">
+            <Link className='mr-4 hover:text-gray-400' to='/debugging'>
               Debugging
             </Link>
           </div>

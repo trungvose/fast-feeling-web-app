@@ -35,7 +35,7 @@ export const PlaylistDetail = () => {
           {new Array(10).fill(0).map((_, index) => (
             <div
               key={index}
-              className='bg-gray-200 h-10 rounded-lg flex items-center justify-center'
+              className='animate-pulse bg-neutral-300 h-10 rounded-lg flex items-center justify-center'
             ></div>
           ))}
         </div>

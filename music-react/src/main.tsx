@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             path: '',
             async lazy() {
               const { Debugging } = await import(
-                './routes/view-transition/Debugging'
+                './routes/music/Debugging'
               );
               return {
                 Component: Debugging,
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
             path: 'playlists',
             async lazy() {
               const { PlaylistListing } = await import(
-                './routes/view-transition/PlaylistListing'
+                './routes/music/PlaylistListing'
               );
               return {
                 Component: PlaylistListing,
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
             path: 'playlists/:id',
             async lazy() {
               const { PlaylistDetail } = await import(
-                './routes/view-transition/PlaylistDetail'
+                './routes/music/PlaylistDetail'
               );
               return {
                 Component: PlaylistDetail,
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
           {
             path: 'cat1',
             async lazy() {
-              const { Cat1 } = await import('./routes/view-transition/Cat1');
+              const { Cat1 } = await import('./routes/music/Cat1');
               return {
                 Component: Cat1,
               };
@@ -103,7 +103,7 @@ const router = createBrowserRouter([
           {
             path: 'cat2',
             async lazy() {
-              const { Cat2 } = await import('./routes/view-transition/Cat2');
+              const { Cat2 } = await import('./routes/music/Cat2');
               return {
                 Component: Cat2,
               };

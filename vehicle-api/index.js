@@ -50,7 +50,7 @@ const getVehicleById = async (req, res) => {
 
 const app = express();
 const host = 'localhost';
-const port = 3000;
+const port = 3001;
 
 app.use(cors({
   origin: 'http://localhost:5173',

@@ -1,8 +1,9 @@
 const express = require('express');
-const cors = require('cors'); 
+const cors = require('cors');
 const sequelize = require('./config/database');
 const Playlist = require('./models/playlist');
 const delay = require('./utils/delay');
+const { getVehicles, getVehicleById } = require('./models/vehicle')
 
 const app = express();
 const port = 3001;
@@ -32,6 +33,10 @@ app.get('/api/playlists/:id', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+app.get('/api/vehicles', getVehicles);
+
+app.get('/api/vehicles/:vehicleId', getVehicleById);
 
 sequelize.sync().then(() => {
   app.listen(port, () => {

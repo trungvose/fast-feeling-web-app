@@ -1,8 +1,3 @@
-// index.js
-
-const express = require('express');
-const cors = require('cors');
-
 const VEHICLES = [
   { id: 1, plate: 'ABC1234', name: 'Toyota Corolla' },
   { id: 2, plate: 'XYZ5678', name: 'Honda Civic' },
@@ -48,26 +43,7 @@ const getVehicleById = async (req, res) => {
   res.json(vehicle);
 };
 
-const app = express();
-const host = 'localhost';
-const port = 3001;
-
-app.use(cors({
-  origin: 'http://localhost:5173',
-}));
-
-// Route to get all vehicles
-app.get('/api/vehicles', getVehicles);
-
-// Route to get a specific vehicle by ID
-app.get('/api/vehicles/:vehicleId', getVehicleById);
-
-// Route for the home page
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
-
-// Start the server
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+module.exports = {
+  getVehicles,
+  getVehicleById,
+};

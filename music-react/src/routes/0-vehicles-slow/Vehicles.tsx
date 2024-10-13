@@ -20,7 +20,7 @@ export const Vehicles = () => {
           </tr>
         </thead>
         <tbody>
-          {vehicles!.map((vehicle) => (
+          {vehicles?.map((vehicle) => (
             <tr key={vehicle.id}>
               <td>{vehicle.plate}</td>
               <td>{vehicle.name}</td>

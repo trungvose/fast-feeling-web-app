@@ -5,9 +5,9 @@ export function MusicRootLayout() {
     <>
       <nav className='bg-gray-800 text-white p-4'>
         <div className='container mx-auto flex justify-between items-center'>
-          <a href='/' className='text-lg font-bold'>
+          <Link className='text-lg font-bold' to='/music/playlists'>
             Music React
-          </a>
+          </Link>
           <div>
             <Link className='mr-4 hover:text-gray-400' to='/vehicles'>
               Vehicles

@@ -28,7 +28,7 @@ export const PlaylistListing = () => {
                 className='object-cover aspect-square rounded-lg mb-4'
               />
               <h2
-                style={{ viewTransitionName: `title-${playlist.id}` }}
+                style={{ viewTransitionName: `title-${playlist.id}`}}
                 className='text-xl font-semibold mb-2'
               >
                 {playlist.name}

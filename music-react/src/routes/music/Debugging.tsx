@@ -3,6 +3,7 @@ import { useRef } from 'react';
 export const Debugging = () => {
   const formRef = useRef(null);
   const inputRef = useRef(null);
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.time('async');
@@ -21,6 +22,15 @@ export const Debugging = () => {
       }, 0);
     });
   };
+  
+  const slowSyncFunction = () => {
+    let sum = 0;
+    for (let i = 0; i < 1e9; i++) {
+      sum += i;
+    }
+    return sum;
+  };
+
   return (
     <div className='container mx-auto'>
       <form

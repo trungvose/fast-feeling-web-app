@@ -1,9 +1,16 @@
 import { useRef } from 'react';
+import {
+  Button,
+  Calendar,
+  CalendarCell,
+  CalendarGrid,
+  Heading,
+} from 'react-aria-components';
 
 export const Debugging = () => {
   const formRef = useRef(null);
   const inputRef = useRef(null);
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.time('async');
@@ -22,7 +29,7 @@ export const Debugging = () => {
       }, 0);
     });
   };
-  
+
   const slowSyncFunction = () => {
     let sum = 0;
     for (let i = 0; i < 1e9; i++) {
@@ -62,6 +69,17 @@ export const Debugging = () => {
             Flex Item
           </div>
         </div>
+      </div>
+
+      <div className='mt-10'>
+        <Calendar aria-label='Appointment date'>
+          <header>
+            <Button slot='previous'>◀</Button>
+            <Heading />
+            <Button slot='next'>▶</Button>
+          </header>
+          <CalendarGrid>{(date) => <CalendarCell date={date} />}</CalendarGrid>
+        </Calendar>
       </div>
     </div>
   );

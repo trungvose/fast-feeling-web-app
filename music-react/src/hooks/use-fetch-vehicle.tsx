@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Vehicle } from '../types/vehicle';
-import { fetchVehicle } from '../api/fetchVehcile';
+import { fetchVehicle } from '../api/fetchVehicle';
 
 export const useFetchVehicle = (vehicleId: string | undefined) => {
   const [vehicle, setVehicle] = useState<Vehicle | null>(null);

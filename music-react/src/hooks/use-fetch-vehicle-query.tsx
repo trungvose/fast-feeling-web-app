@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { fetchVehicle } from '../api/fetchVehcile';
+import { fetchVehicle } from '../api/fetchVehicle';
 import { Vehicle } from '../types/vehicle';
 
 export const useFetchVehicle = (vehicleId: string | undefined) => {

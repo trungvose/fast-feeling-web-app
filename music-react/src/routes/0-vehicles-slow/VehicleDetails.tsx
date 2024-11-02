@@ -1,13 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import { Spinner } from '../../shared/components/Spinner';
-import { useFetchVehicle } from '../../hooks/use-fetch-vehicle-query';
+import { useFetchVehicle } from '../../hooks/use-fetch-vehicle';
 
 export const VehicleDetails = () => {
   const { vehicleId } = useParams<{ vehicleId: string }>();
-  const { error, isLoading, data: vehicle } = useFetchVehicle(vehicleId);
+  const { error, loading, vehicle } = useFetchVehicle(vehicleId);
 
-  if (isLoading) return <Spinner />;
-  if (error) return <h2>Error: {error.message}</h2>;
+  if (loading) return <Spinner />;
+  if (error) return <h2>Error: {error}</h2>;
 
   return (
     vehicle && (

@@ -8,22 +8,18 @@ export const useFetchVehicle = (vehicleId: string | undefined) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
     const init = async () => {
       try {
-        timer = setTimeout(() => {
-          setLoading(true);
-        }, 300);
+        setLoading(true);
         const data: Vehicle = await fetchVehicle(vehicleId, {
           headers: {
-            delay: '1500',
+            delay: '250',
           },
         });
         setVehicle(data);
       } catch (err) {
         setError((err as Error).message);
       } finally {
-        if (timer) clearTimeout(timer);
         setLoading(false);
       }
     };

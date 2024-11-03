@@ -16,7 +16,7 @@ export const useFetchVehicle = (vehicleId: string | undefined) => {
         }, 300);
         const data = await fetchVehicle(vehicleId, {
           headers: {
-            delay: '250',
+            delay: '1500',
           },
         });
         setVehicle(data);

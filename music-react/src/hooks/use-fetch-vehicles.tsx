@@ -8,9 +8,12 @@ export const useFetchVehicles = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     const init = async () => {
       try {
-        setLoading(true);
+        timer = setTimeout(() => {
+          setLoading(true);
+        }, 300);
         const data = await fetchVehicles({
           headers: {
             delay: '250',
@@ -20,6 +23,7 @@ export const useFetchVehicles = () => {
       } catch (err) {
         setError((err as Error).message);
       } finally {
+        if (timer) clearTimeout(timer);
         setLoading(false);
       }
     };
